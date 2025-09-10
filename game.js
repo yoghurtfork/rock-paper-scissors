@@ -51,6 +51,7 @@ const scissorsButton = document.querySelector("#scissorsButton");
 
 const roundResult = document.querySelector("#roundResult");
 const runningScore = document.querySelector("#runningScore");
+const gameResult = document.querySelector("#gameResult");
 
 rockButton.addEventListener('click', () => playRound('rock', getComputerChoice()));
 paperButton.addEventListener('click', () => playRound('paper', getComputerChoice()));
@@ -97,7 +98,19 @@ function playRound(humanChoice, computerChoice){
             humanScore++;
         }
     }
+
+    gameResult.textContent = "";
     roundResult.textContent = str;
     runningScore.textContent = "Total score - " + humanScore + ":" + computerScore;
-    return str;
+    
+    if (humanScore == 5){
+        gameResult.textContent = "You have reached 5 points. You win!";
+        humanScore = 0;
+        computerScore = 0;
+    }
+    else if (computerScore == 5){
+        gameResult.textContent = "The computer has reached 5 points. You lose!";
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
