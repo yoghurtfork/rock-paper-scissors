@@ -90,14 +90,9 @@ function playGame(){
     }
 }
 
-const rockButton = document.createElement('button');
-rockButton.textContent = "Rock";
-const paperButton = document.createElement('button');
-paperButton.textContent = "Paper";
-const scissorsButton = document.createElement('button');
-scissorsButton.textContent = "Scissors";
-const buttonContainer = document.querySelector('#buttonContainer');
-buttonContainer.append(rockButton, paperButton, scissorsButton);
+const rockButton = document.querySelector("#rockButton");
+const paperButton = document.querySelector("#paperButton");
+const scissorsButton = document.querySelector("#scissorsButton");
 
 rockButton.addEventListener('click', () => playRound('rock', getComputerChoice()));
 paperButton.addEventListener('click', () => playRound('paper', getComputerChoice()));
